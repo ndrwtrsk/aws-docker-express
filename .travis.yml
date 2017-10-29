@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "node"
+
+sudo: required
+
+services:
+  - docker
+
+after_succes:
+  - docker build -t ndrw/docker-express .
