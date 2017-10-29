@@ -18,4 +18,4 @@ after_success:
   - docker push "$REMOTE_IMAGE_URL:latest"
   - echo "Pushed $IMAGE_NAME:latest"
   - echo "Deploying $TRAVIS_BRANCH on $TASK_DEFINITION"
-  - ./bin/ecs-deploy -c $TASK_DEFINITION -n $SERVICE -i $REMOTE_IMAGE_URL:latest
+  - ./bin/ecs-deploy -n $SERVICE -c $CLUSTER -i $REMOTE_IMAGE_URL:latest
