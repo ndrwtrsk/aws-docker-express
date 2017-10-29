@@ -17,3 +17,5 @@ after_success:
   - docker tag $IMAGE_NAME:latest "$REMOTE_IMAGE_URL:latest"
   - docker push "$REMOTE_IMAGE_URL:latest"
   - echo "Pushed $IMAGE_NAME:latest"
+  - echo "Deploying $TRAVIS_BRANCH on $TASK_DEFINITION"
+  - ./bin/ecs-deploy -c $TASK_DEFINITION -n $SERVICE -i $REMOTE_IMAGE_URL:$TRAVIS_BRANCH
